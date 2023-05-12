@@ -1,0 +1,11 @@
+In this exam,  you are given an array of sticks with two end points where each end point can be any of the following 3 types: Inwards End, Outwards End and Straight End. An illustration for some possible stick instances are given in the figure below.
+Each stick has also "size" property. The size differs from 1 to 10.  The size of each stick is specified in a different input array. Your task is to build the longest path by combining the sticks end to end. The rules of combination are given as follows:
+An Inwards end can be combined with an Outwards end only.
+An Outwards end can be combined with an Inwards end only.
+A Straight end can be combined with another Straight end only.
+The path can be started with any type of end. Similarly, it can be finished with any type of end.
+While building the path, you should preserve the ordering of the sticks given in the input array. That is; if stick A comes before stick B in the input array, then stick A can not come after stick B in the resulting path.
+You do not have to use all the sticks given in the input array.
+You should not reverse the sticks. That is, left and right ends of the stick should not be swapped.
+In order to obtain the same results with the answer key, please obey the rules given in "Implementation" part.
+Please examine the examples below. Note that, each stick is defined with its left and right end types . "I" represents Inwards end, "O" represents Outwards end and "S" represents Straight end. For instance, ['I', 'S'] represents a stick starting with Inwards end and ending with Straight end.
