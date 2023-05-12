@@ -1,0 +1,9 @@
+select U.userName, B.busID, B.starting_point, B.destination, B.deptime
+FROM Users U, Buses B, Sold_Tickets S
+WHERE  U.userID = S.userID AND S.busID = B.busID AND
+B.busID IN 
+(SELECT B1.busID
+from Buses B1, Users U1
+WHERE B1.driverID = U1.userID AND U1.userName = 'Osman Kocoglu'
+)
+ORDER BY U.userName ASC, B.deptime DESC;

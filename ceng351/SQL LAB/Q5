@@ -1,0 +1,6 @@
+select B.busID, U.userName, AVG(S.price)*COunt(S.price)
+FROm Buses B, Users U, Sold_Tickets S
+WHere U.userID = B.driverID AND U.status = 'banned' AND S.busID = B.busID
+Group BY B.busID
+Order by B.busID ASC;
+

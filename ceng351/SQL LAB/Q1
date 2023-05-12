@@ -1,0 +1,4 @@
+select U.userName, B.busID,S.price
+From Users U, Buses B, Sold_Tickets S
+WHERE U.status = 'banned' AND U.userID = S.userID AND B.busID = S.busID
+ORDER BY U.userName ASC, B.busID DESC;

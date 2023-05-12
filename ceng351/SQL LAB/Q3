@@ -1,0 +1,14 @@
+SELECT U.userID, U.userName, U.status
+FROM Users U
+WHERE 
+ NOT EXISTS 
+(SELECT B.busID
+FROM Buses B,  Sold_Tickets S, Users U1
+WHERE U1.userID = B.driverID AND U1.userName = 'Osman Kocoglu'
+EXCEPT 
+SELECT B.busID
+FROM Buses B,  Sold_Tickets S
+WHERE U.userID = S.userID AND S.busID = B.busID 
+
+)
+ORDER BY U.userName ASC,  U.status DESC;

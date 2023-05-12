@@ -1,0 +1,8 @@
+SELECT DISTINCT B.starting_point, B.destination
+FROM Buses B1, Buses B
+WHERE  B1.starting_point = B.destination AND B1.destination = B.starting_point 
+Group By B.starting_point, B.destination
+HAVING B.starting_point < B.destination
+order BY B.starting_point ASC, B.destination ASC;
+
+

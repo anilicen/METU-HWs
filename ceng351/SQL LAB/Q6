@@ -1,0 +1,9 @@
+select B.busID, B.starting_point, B.destination,MIN(B.deptime)
+FROM Buses B, Users U, Request_Tickets R
+WHERE R.userID = U.userID AND U.userName='Elif Usta' AND
+B.starting_point = R.starting_point AND B.destination = R.destination AND R.deptime < B.deptime
+Group by  B.starting_point, B.destination
+
+ORDER BY B.deptime ASC, B.starting_point ASC;
+
+
