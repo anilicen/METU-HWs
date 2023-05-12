@@ -1,0 +1,8 @@
+Their text is Comic books are serious business
+0 0 1 4 18 92 555 3888
+6 1 738 
+37 380 Carol
+15 0
+1 6 3 4 5 2
+7
+

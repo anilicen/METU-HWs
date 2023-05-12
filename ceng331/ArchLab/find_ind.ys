@@ -1,0 +1,39 @@
+.pos 0
+# main
+    irmovq stack, %rsp
+    irmovq array, %rdi
+    irmovq $10, %rsi
+    irmovq $6, %rdx
+    call find_ind
+    halt
+
+# return the index of an element in an array
+find_ind:
+    xorq %rax, %rax  # i = 0
+    irmovq $8, %r8
+    irmovq $1, %r9
+loop:
+    mrmovq (%rdi), %r10  # temp = arr[i]
+    subq %rsi, %r10
+    je Done
+    addq %r8, %rdi # arr++
+    addq %r9, %rax # i++
+    rrmovq %rax, %r10
+    subq %rdx, %r10 # i - len
+    jl loop
+    irmovq $-1, %rax
+Done:
+    ret
+
+
+.pos 0x200
+array:
+    .quad 0X0001
+    .quad 0x0002
+    .quad 0x0003
+    .quad 0X0004
+    .quad 0x0005
+    .quad 0x0006
+
+.pos 0x400
+stack:
