@@ -1,0 +1,31 @@
+name: q1
+source code: |-
+
+input: '0011'
+blank: ' '
+start state: q10
+table:
+  
+ q2:
+    1      : {write: ' ', L: q3}
+  
+ q3:
+    0      : {write: 0, L: q3}
+    1      : {write: 1, L: q3}
+    ' '    : {write: ' ', R: q0}
+ q10:
+    0      : {write: ' ', R: q1}
+
+ q0:
+    0      : {write: ' ', R: q1}
+    ' '    : {write: ' ', L: accept} 
+
+ q1:
+    0      : {write: 0, R: q1}
+    1      : {write: 1, R: q1}
+    ' '    : {write: ' ', L: q2}
+    
+ 
+    
+ accept:
+  

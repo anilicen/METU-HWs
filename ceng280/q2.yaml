@@ -1,0 +1,48 @@
+name: q2
+source code: |-
+
+input: '11'
+blank: ' '
+start state: q01
+table:
+
+  q2:
+    a      : {write: a, R: q2}
+    b      : {write: b, R: q2}
+    ' '    : {write: b, L: q3}
+
+  q3:
+    a      : {write: a, L: q3}
+    b      : {write: b, L: q3}
+    0      : {write: 0, L: q4}
+    1      : {write: 1, L: q4}
+    ' '    : {write: ' ', R: q0}
+
+  q4:
+    0      : {write: 0, R: q0}
+    1      : {write: 1, R: q0}
+    ' '    : {write: ' ', R: q0}
+
+  q01:
+    0      : {write: 0, R: q5}
+    1      : {write: 1, R: q5}
+    
+  q0:
+    0      : {write: a, R: q1}
+    1      : {write: b, R: q2}
+    a      : {write: 0, R: q0} 
+    b      : {write: 1, R: q0}
+    ' '    : {write: ' ', L: accept}
+    
+  q1:
+    a      : {write: a, R: q1}
+    b      : {write: b, R: q1}
+    ' '    : {write: a, L: q3}
+
+  q5:
+    0      : {write: 0, R: q5}
+    1      : {write: 1, R: q5}
+    ' '    : {write: ' ', L: q0}
+
+  accept:
+  
